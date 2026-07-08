@@ -121,7 +121,7 @@ export default function Home() {
               />
             </div>
             <div className="intro__chip">
-              <span className="intro__chip-num">9 yrs</span>
+              <span className="intro__chip-num">15 yrs</span>
               <span className="intro__chip-label">hosting travellers</span>
             </div>
           </Reveal>
