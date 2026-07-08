@@ -1,0 +1,124 @@
+.masonry {
+  columns: 3;
+  column-gap: 1.2rem;
+}
+.masonry__item {
+  break-inside: avoid;
+  margin-bottom: 1.2rem;
+}
+.masonry__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.masonry__btn img {
+  width: 100%;
+  display: block;
+  transition: transform 0.8s var(--ease);
+}
+.masonry__item.is-tall img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.masonry__btn:hover img {
+  transform: scale(1.06);
+}
+.masonry__zoom {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(20, 36, 26, 0.35);
+  color: var(--cream-50);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.masonry__zoom > * {
+  background: rgba(250, 247, 240, 0.18);
+  border-radius: 50%;
+  padding: 12px;
+  backdrop-filter: blur(4px);
+}
+.masonry__btn:hover .masonry__zoom {
+  opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 5vw, 4rem);
+  background: rgba(20, 36, 26, 0.92);
+  backdrop-filter: blur(10px);
+}
+.lightbox__img {
+  max-width: min(92vw, 1100px);
+  max-height: 84vh;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+}
+.lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--cream-50);
+  background: rgba(250, 247, 240, 0.12);
+  transition: background 0.3s var(--ease);
+}
+.lightbox__close:hover {
+  background: rgba(250, 247, 240, 0.24);
+}
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--cream-50);
+  background: rgba(250, 247, 240, 0.12);
+  transition: background 0.3s var(--ease);
+}
+.lightbox__nav:hover {
+  background: var(--clay-500);
+}
+.lightbox__nav--prev {
+  left: 1.5rem;
+}
+.lightbox__nav--next {
+  right: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .masonry {
+    columns: 2;
+  }
+}
+@media (max-width: 560px) {
+  .masonry {
+    columns: 1;
+  }
+  .lightbox__nav {
+    width: 44px;
+    height: 44px;
+  }
+  .lightbox__nav--prev {
+    left: 0.5rem;
+  }
+  .lightbox__nav--next {
+    right: 0.5rem;
+  }
+}

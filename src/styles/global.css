@@ -1,0 +1,323 @@
+/* ============================================================
+   PINEWOOD — Design System
+   ============================================================ */
+:root {
+  /* Palette */
+  --pine-900: #14241a;
+  --pine-800: #1f3d2b;
+  --pine-700: #2c5239;
+  --pine-500: #4a7c59;
+  --pine-300: #8fb09a;
+
+  --clay-600: #b3653b;
+  --clay-500: #c97c4a;
+  --clay-400: #d9966a;
+
+  --cream-50: #faf7f0;
+  --cream-100: #f4efe3;
+  --cream-200: #e8e2d4;
+  --sand-300: #d8cfba;
+
+  --ink-900: #1a1c19;
+  --ink-700: #3a3d38;
+  --ink-500: #6b6f67;
+  --ink-300: #9b9f96;
+
+  --white: #ffffff;
+
+  /* Semantic */
+  --bg: var(--cream-50);
+  --bg-alt: var(--cream-100);
+  --text: var(--ink-900);
+  --muted: var(--ink-500);
+  --accent: var(--clay-500);
+  --accent-dark: var(--clay-600);
+  --brand: var(--pine-800);
+
+  /* Type */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing rhythm */
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  --shadow-sm: 0 2px 8px rgba(20, 36, 26, 0.06);
+  --shadow: 0 18px 40px -18px rgba(20, 36, 26, 0.28);
+  --shadow-lg: 0 40px 80px -32px rgba(20, 36, 26, 0.4);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* ---------- Typography helpers ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.display {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 26px;
+  height: 1.5px;
+  background: var(--accent);
+  display: inline-block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  max-width: 18ch;
+}
+
+.lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  color: var(--ink-700);
+  max-width: 56ch;
+}
+
+.serif-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tight {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.bg-pine {
+  background: var(--pine-800);
+  color: var(--cream-100);
+}
+.bg-pine h1,
+.bg-pine h2,
+.bg-pine h3 {
+  color: var(--cream-50);
+}
+
+.bg-alt {
+  background: var(--bg-alt);
+}
+
+.grid {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.7rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.4s var(--ease), background 0.3s var(--ease),
+    box-shadow 0.4s var(--ease), color 0.3s var(--ease);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--white);
+  box-shadow: 0 12px 26px -12px var(--accent-dark);
+}
+.btn--primary:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 18px 34px -12px var(--accent-dark);
+}
+
+.btn--dark {
+  background: var(--pine-800);
+  color: var(--cream-50);
+}
+.btn--dark:hover {
+  background: var(--pine-900);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid rgba(26, 28, 25, 0.18);
+}
+.btn--ghost:hover {
+  border-color: var(--text);
+}
+
+.btn--light {
+  background: var(--cream-50);
+  color: var(--pine-800);
+}
+.btn--light:hover {
+  background: var(--white);
+}
+
+.btn--outline-light {
+  border: 1.5px solid rgba(244, 239, 227, 0.35);
+  color: var(--cream-50);
+}
+.btn--outline-light:hover {
+  border-color: var(--cream-50);
+  background: rgba(244, 239, 227, 0.08);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  transition: gap 0.3s var(--ease);
+}
+.link-arrow:hover {
+  gap: 0.85rem;
+}
+
+/* ---------- Pills / tags ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--cream-200);
+  color: var(--ink-700);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+/* ---------- Utility ---------- */
+.text-center {
+  text-align: center;
+}
+.mx-auto {
+  margin-inline: auto;
+}
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.75rem; }
+.mt-4 { margin-top: 2.5rem; }
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(26, 28, 25, 0.12),
+    transparent
+  );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

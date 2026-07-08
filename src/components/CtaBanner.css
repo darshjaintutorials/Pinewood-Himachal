@@ -1,0 +1,62 @@
+.cta {
+  padding-block: var(--section-y);
+}
+
+.cta__inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  background: linear-gradient(135deg, var(--pine-800), var(--pine-900));
+  color: var(--cream-100);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.cta__inner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1400&q=70');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  mix-blend-mode: luminosity;
+}
+
+.cta__glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 124, 74, 0.55), transparent 70%);
+  top: -160px;
+  right: -120px;
+  filter: blur(20px);
+}
+
+.cta__inner > *:not(.cta__glow) {
+  position: relative;
+  z-index: 1;
+}
+
+.cta__title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--cream-50);
+  margin-top: 1rem;
+}
+
+.cta__text {
+  max-width: 52ch;
+  margin: 1.4rem auto 0;
+  color: var(--pine-300);
+  font-size: 1.1rem;
+}
+
+.cta__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.2rem;
+}

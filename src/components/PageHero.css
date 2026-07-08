@@ -1,0 +1,50 @@
+.page-hero {
+  position: relative;
+  min-height: 62vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  padding-top: 8rem;
+  overflow: hidden;
+  color: var(--cream-50);
+}
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  animation: heroZoom 16s ease-out forwards;
+}
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 36, 26, 0.92) 0%,
+    rgba(20, 36, 26, 0.55) 45%,
+    rgba(20, 36, 26, 0.35) 100%
+  );
+}
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+.page-hero__eyebrow {
+  color: var(--clay-400);
+}
+.page-hero__eyebrow::before {
+  background: var(--clay-400);
+}
+.page-hero__title {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  color: var(--cream-50);
+  margin-top: 1rem;
+  max-width: 16ch;
+}
+.page-hero__sub {
+  margin-top: 1.2rem;
+  max-width: 56ch;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(244, 239, 227, 0.88);
+}
